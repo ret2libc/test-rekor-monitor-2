@@ -9,8 +9,8 @@ on:
 
 
 permissions:
-  - read-all
-  - issues: write
+  contents: read
+  issues: write
 
 jobs:
   run_consistency_proof:
