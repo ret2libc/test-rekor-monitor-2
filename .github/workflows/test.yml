@@ -19,7 +19,7 @@ jobs:
       contents: read # Needed to checkout repositories
       id-token: write # Needed to detect the current reusable repository and ref
       issues: write
-    uses: trail-of-forks/rekor-monitor/.github/workflows/reusable_monitoring.yml@main
+    uses: sigstore/rekor-monitor/.github/workflows/reusable_monitoring.yml@main
     with:
       file_issue: true
       artifact_retention_days: 1
