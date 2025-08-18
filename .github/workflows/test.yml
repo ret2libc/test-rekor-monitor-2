@@ -2,6 +2,9 @@ name: Fulcio log and identity monitor
 on:
   schedule:
     - cron: '0 * * * *' # every hour
+  push:
+    branches:
+      - main
 
 permissions: read-all
 
