@@ -8,13 +8,16 @@ on:
   workflow_dispatch:
 
 
-permissions: read-all
+permissions:
+  - read-all
+  - issues: write
 
 jobs:
   run_consistency_proof:
     permissions:
       contents: read # Needed to checkout repositories
       id-token: write # Needed to detect the current reusable repository and ref
+      issues: write
     uses: trail-of-forks/rekor-monitor/.github/workflows/ct_reusable_monitoring.yml@dedup-workflows
     with:
       file_issue: true
