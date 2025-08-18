@@ -14,8 +14,10 @@ jobs:
     permissions:
       contents: read # Needed to checkout repositories
       id-token: write # Needed to detect the current reusable repository and ref
-    uses: trail-of-forks/rekor-monitor/.github/workflows/ct_reusable_monitoring.yml@ci-ct-monitor-config
+    uses: trail-of-forks/rekor-monitor/.github/workflows/ct_reusable_monitoring.yml@dedup-workflows
     with:
+      file_issue: true
+      artifact_retention_days: 1
       config: |
         monitoredValues:
           certIdentities:
