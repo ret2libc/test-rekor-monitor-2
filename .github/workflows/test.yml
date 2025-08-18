@@ -6,13 +6,13 @@ on:
     branches:
       - main
 
+
 permissions: read-all
 
 jobs:
   run_consistency_proof:
     permissions:
       contents: read # Needed to checkout repositories
-      issues: write # Needed if you set "file_issue: true"
       id-token: write # Needed to detect the current reusable repository and ref
     uses: sigstore/rekor-monitor/.github/workflows/ct_reusable_monitoring.yml@main
     with:
