@@ -1,29 +1,17 @@
-name: Fulcio log and identity monitor
+name: Rekor log monitor
 on:
   schedule:
-    - cron: '0 * * * *' # every hour
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+    - cron: "*/5 * * * *" # every 5 minutes
 
-
-permissions:
-  contents: read
-  issues: write
-  id-token: write
+permissions: read-all
 
 jobs:
   run_consistency_proof:
     permissions:
       contents: read # Needed to checkout repositories
+      issues: write # Needed if you set "file_issue: true"
       id-token: write # Needed to detect the current reusable repository and ref
-      issues: write
-    uses: trail-of-forks/rekor-monitor/.github/workflows/ct_reusable_monitoring.yml@dedup-workflows
+    uses: sigstore/rekor-monitor/.github/workflows/reusable_monitoring.yml@main
     with:
-      file_issue: true
-      artifact_retention_days: 1
-      config: |
-        monitoredValues:
-          certIdentities:
-            - certSubject: riccardo.schirone@trailofbits.com
+      file_issue: true # Strongly recommended: Files an issue on monitoring failure
+      artifact_retention_days: 14 # Optional, default is 14: Must be longer than the cron job frequency
