@@ -19,8 +19,8 @@ jobs:
       config: |
         monitoredValues:
           certIdentities:
-            - certSubject: riccardo.schirone@trailofbits.com
-            - certSubject: rschirone91@gmail.com
+            - certSubject: riccardo\.schirone@trailofbits\.com
+            - certSubject: rschirone91@gmail\.com
               issuers:
                 - https://accounts\.google\.com
                 - https://github\.com/login
